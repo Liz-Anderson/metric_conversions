@@ -10,20 +10,20 @@
     <body>
         <div id="app">
             <h1>Metric Converter</h1>
-            <p>{{message}}</p>
-            <p>{{message2}}</p>
-            <div v-show="show==='home'">
-                <button @click="message='weight'; show='function'">weight</button>
-                <button @click="message='length'">length</button>
-                <button @click="message='distance'">distance</button>
-                <button @click="message='temperature'">temperature</button>
-                <button @click="message='cooking'">cooking</button>
-                <button @click="message='volume'">volume</button>
+            
+            <div>
+                <button @click="category='temperature'">temperature</button>
+                <button @click="category='weight'">weight</button>
+                <button @click="category='length'">length</button>
+                <button @click="category='volume'">volume</button>
+
+                <p>{{category}}</p>
+
+                
+                <!-- add input elements for amount, input units, and output units -->
+
             </div>
-            <div v-show="show==='function'">
-                <button @click="show='home'">home</button>
-                <p>function mode</p>
-            </div>
+            
         </div>
 
         <script src="https://unpkg.com/vue@3"></script>
