@@ -18,8 +18,11 @@
                 <button @click="category='volume'">volume</button>
 
                 <p>{{category}}</p>
-
-                
+                <p>How much is </p>
+                <input v-model="inputAmount" type="number">
+                <select>
+                    <option v-for="unit in Object.keys(category)" value="unit">{{unit}}</option>
+                </select>
                 <!-- add input elements for amount, input units, and output units -->
 
             </div>
