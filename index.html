@@ -19,10 +19,17 @@
 
                 <p>{{category}}</p>
                 <p>How much is </p>
+
+                <!-- fix this!!! try reorganizing data -->
                 <input v-model="inputAmount" type="number">
-                <select>
-                    <option v-for="unit in Object.keys(category)" value="unit">{{unit}}</option>
+                <select v-for="item in measurementChoice">
+                    <!-- <div v-for="item in measurementChoice"> -->
+
+                        <option v-for="unit in item.keys" value="unit">{{unit}}</option>
+                    <!-- </div> -->
+                    
                 </select>
+
                 <!-- add input elements for amount, input units, and output units -->
 
             </div>
