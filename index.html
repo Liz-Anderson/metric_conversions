@@ -17,18 +17,41 @@
                 <button @click="category='length'">length</button>
                 <button @click="category='volume'">volume</button>
 
-                <p>{{category}}</p>
+                <p>category: {{category}}</p>
                 <p>How much is </p>
+                <p>{{weight}}</p>
 
                 <!-- fix this!!! try reorganizing data -->
-                <input v-model="inputAmount" type="number">
-                <select v-for="item in measurementChoice">
-                    <!-- <div v-for="item in measurementChoice"> -->
+                <div v-if="category === 'weight'">
+                    <input v-model="inputAmount" type="number">
+                    <select>
+                        <option v-for="item in Object.keys(weight)">{{item}}</option>
+
+                    </select>
+                </div>
+
+                <div v-if="category === 'volume'">
+                    <input v-model="inputAmount" type="number">
+                    <select>
+                        <option v-for="item in Object.keys(volume)">{{item}}</option>
+
+                    </select>
+                </div>
+
+                
+                <!-- <input v-model="inputAmount" type="number">
+                <select>
+                    <option v-for="item in Object.keys(weight)">{{item}}</option>
+
+                </select> -->
+
+                <!-- <select v-for="item in measurementChoice">
+                    
 
                         <option v-for="unit in item.keys" value="unit">{{unit}}</option>
-                    <!-- </div> -->
+                   
                     
-                </select>
+                </select> -->
 
                 <!-- add input elements for amount, input units, and output units -->
 
