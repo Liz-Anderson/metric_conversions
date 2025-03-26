@@ -22,6 +22,22 @@
                 <p>{{weight}}</p>
 
                 <!-- fix this!!! try reorganizing data -->
+                <div v-if="category === 'temperature'">
+                    <input v-model="inputAmount" type="number">
+                    <select>
+                        <option v-for="item in Object.keys(temperature)">{{item}}</option>
+
+                    </select>
+                </div>
+
+                <div v-if="category === 'length'">
+                    <input v-model="inputAmount" type="number">
+                    <select>
+                        <option v-for="item in Object.keys(length)">{{item}}</option>
+
+                    </select>
+                </div>
+
                 <div v-if="category === 'weight'">
                     <input v-model="inputAmount" type="number">
                     <select>
@@ -41,19 +57,9 @@
                 
                 <!-- <input v-model="inputAmount" type="number">
                 <select>
-                    <option v-for="item in Object.keys(weight)">{{item}}</option>
+                    <option v-for="item in Object.keys(category)">{{item}}</option>
 
                 </select> -->
-
-                <!-- <select v-for="item in measurementChoice">
-                    
-
-                        <option v-for="unit in item.keys" value="unit">{{unit}}</option>
-                   
-                    
-                </select> -->
-
-                <!-- add input elements for amount, input units, and output units -->
 
             </div>
             

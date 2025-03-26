@@ -9,3 +9,7 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   appearance: textfield;
 }
+
+body {
+  background-color: gray
+}
