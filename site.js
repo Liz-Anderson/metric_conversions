@@ -1,7 +1,7 @@
 const app = Vue.createApp({
     data() {
         return {
-            category: 'weight',
+            category: 'length',
             inputAmount: 0,
             outputAmount: 0,
             inputUnit: '',
@@ -37,65 +37,56 @@ const app = Vue.createApp({
                 'US fluid ounce': 0.125,
                 'Imperial fluid ounce': 0.120095,
             },
-                
-                    
-            // change the way this data is organized
-            // measurementChoice: [
-            //         {length: {
-            //             ft: 0.3048,
-            //             mi: 1609.34,
-            //             'm': 1,
-            //             'km': 1000,
-            //             'yd': 0.9144,
-            //             'in': 0.0254,
-            //             'cm': 0.01
-            //             },
-            //             keys: ['ft', 'mi', 'm', 'km', 'yd', 'in', 'cm']
-            //         },
-            //         {weight: {
-            //             gram: 0.00220462,
-            //             'ounce': 0.0625,
-            //             'pound': 1,
-            //             'kilogram': 2.20462
-            //             },
-            //             keys: ['gram', 'ounce', 'pound', 'kilogram']
-            //         },
-            //         // figure out units for volume
-            //         {volume: {
-            //             'tsp': 0,
-            //             'Tbsp': 0,
-            //             'cup': 0,
-            //             'pint': 0,
-            //             'quart': 0,
-            //             'gallon': 0,
-            //             'ml': 0,
-            //             'fluid ounce': 0
-            //             },
-            //             keys: ['tsp', 'Tbsp', 'cup', 'pint', 'quart', 'gallon', 'ml', 'fluid ounce']
-            //         }
-            // ]
 
         }},
         methods: {
             // create temperature function
             tempConversion() {
-
+                // convert to F
+                if (this.inputUnit === 'C') {
+                    this.outputAmount = (this.inputAmount * (9/5) + 32)
+                } else {
+                    // convert to C
+                    this.outputAmount = (this.inputAmount - 32) * (5/9)
+                }
+                console.log('output', this.outputAmount)
             },
             lwvConversion() {
-                let startingAmount = this.inputAmount * this.category[this.inputUnit]
-                this.outputAmount = startingAmount/this.category[this.outputUnit]
+                if (this.category === 'weight') {
+                    this.inputUnit = 'pound'
+                    this.outputUnit = 'gram'
+                    let startingAmount = this.inputAmount * this.weight[this.inputUnit]
+                    this.outputAmount = startingAmount/this.weight[this.outputUnit]
+                } else if (this.category === 'length') {
+                    
+                    let startingAmount = this.inputAmount * this.length[this.inputUnit]
+                    this.outputAmount = startingAmount/this.length[this.outputUnit]
+                } else if (this.category === 'volume') {
+                    let startingAmount = this.inputAmount * this.volume[this.inputUnit]
+                    this.outputAmount = startingAmount/this.volume[this.outputUnit] 
+                } else {
+                    if (this.inputUnit === 'C') {
+                        this.outputAmount = (this.inputAmount * (9/5) + 32)
+                    } else {
+                        // convert to C
+                        this.outputAmount = (this.inputAmount - 32) * (5/9)
+                    }
+                }
+                // this is the streamline way to do this, i need to figure it out
+                // let startingAmount = this.inputAmount * this.category[this.inputUnit]
+                // this.outputAmount = startingAmount/this.category[this.outputUnit]
             },
             test() {
+                let startingAmount = `4 * ${this.category}['cup']`
+                console.log(startingAmount)
+                this.outputAmount = `${startingAmount}/${this.category}['gallon']`
+                alert(this.outputAmount)
+                console.log('output', this.outputAmount)
+
+
+
                 console.log('1', this.category)
-                // for (item of this.measurementChoice) {
-                    
-                //     if (Object.keys(item) === 'weight') {
-                //         console.log('2', Object.keys(item))
-                //     }
-                //     console.log('2.5', item)
-                    
-                // }
-                // console.log('3', JSON.parse(JSON.stringify(this.measurementChoice)))
+       
                 console.log('4', Object.keys(`${this.category}`))
             }
         },

@@ -19,38 +19,57 @@
 
                 <p>category: {{category}}</p>
                 <p>How much is </p>
-                <p>{{weight}}</p>
 
-                <!-- fix this!!! try reorganizing data -->
+                <!-- temperature ----------------------------------------------------------------------->
                 <div v-if="category === 'temperature'">
                     <input v-model="inputAmount" type="number">
-                    <select>
-                        <option v-for="item in Object.keys(temperature)">{{item}}</option>
 
+                    <select v-model="inputUnit">
+                        <option v-for="item in Object.keys(temperature)" :key="item">{{item}}</option>
+                    </select>
+                    <p>in</p>
+                    <select v-model="outputUnit">
+                        <option v-for="item in Object.keys(temperature)" :key="item">{{item}}</option>
                     </select>
                 </div>
 
+                <!-- length ---------------------------------------------------------------------------->
                 <div v-if="category === 'length'">
                     <input v-model="inputAmount" type="number">
-                    <select>
-                        <option v-for="item in Object.keys(length)">{{item}}</option>
 
+                    <select v-model="inputUnit">
+                        <option v-for="item in Object.keys(length)" :key="item">{{item}}</option>
+                    </select>
+                    <p>in</p>
+                    <select v-model="outputUnit">
+                        <option v-for="item in Object.keys(length)" :key="item">{{item}}</option>
                     </select>
                 </div>
 
+                <!-- weight ---------------------------------------------------------------------------->
                 <div v-if="category === 'weight'">
                     <input v-model="inputAmount" type="number">
-                    <select>
-                        <option v-for="item in Object.keys(weight)">{{item}}</option>
 
+                    <select v-model="inputUnit">
+                        <option v-for="item in Object.keys(weight)" :value="item" :key="item">{{item}}</option>
+                    </select>
+                    <p>in</p>
+                    <select v-model="outputUnit">
+                        <option v-for="item in Object.keys(weight)" :value="item" :key="item">{{item}}</option>
                     </select>
                 </div>
 
+                <!-- volume ---------------------------------------------------------------------------->
                 <div v-if="category === 'volume'">
-                    <input v-model="inputAmount" type="number">
-                    <select>
-                        <option v-for="item in Object.keys(volume)">{{item}}</option>
 
+                    <input v-model="inputAmount" type="number">
+
+                    <select v-model="inputUnit">
+                        <option v-for="item in Object.keys(volume)" :key="item">{{item}}</option>
+                    </select>
+                    <p>in</p>
+                    <select v-model="outputUnit">
+                        <option v-for="item in Object.keys(volume)" :key="item">{{item}}</option>
                     </select>
                 </div>
 
