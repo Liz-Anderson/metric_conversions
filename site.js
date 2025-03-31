@@ -58,13 +58,18 @@ const app = Vue.createApp({
                     let startingAmount = this.inputAmount * this.weight[this.inputUnit]
                     this.outputAmount = startingAmount/this.weight[this.outputUnit]
                 } else if (this.category === 'length') {
-                    
+                    this.inputUnit = 'ft'
+                    this.outputUnit = 'cm'
                     let startingAmount = this.inputAmount * this.length[this.inputUnit]
                     this.outputAmount = startingAmount/this.length[this.outputUnit]
                 } else if (this.category === 'volume') {
+                    this.inputUnit = 'cup'
+                    this.outputUnit = 'Imperial fluid ounce'
                     let startingAmount = this.inputAmount * this.volume[this.inputUnit]
                     this.outputAmount = startingAmount/this.volume[this.outputUnit] 
                 } else {
+                    this.inputUnit = 'C'
+                    this.outputUnit = 'F'
                     if (this.inputUnit === 'C') {
                         this.outputAmount = (this.inputAmount * (9/5) + 32)
                     } else {
