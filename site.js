@@ -40,7 +40,21 @@ const app = Vue.createApp({
 
         }},
         methods: {
-            // create temperature function
+            clickedValues() {
+                if (this.category === 'weight') {
+                    this.inputUnit = 'pound'
+                    this.outputUnit = 'gram'
+                } else if (this.category === 'length') {
+                    this.inputUnit = 'ft'
+                    this.outputUnit = 'cm'
+                } else if (this.category === 'volume') {
+                    this.inputUnit = 'cup'
+                    this.outputUnit = 'Imperial fluid ounce'
+                } else {
+                    this.inputUnit = 'C'
+                    this.outputUnit = 'F'
+                }
+            },
             tempConversion() {
                 // convert to F
                 if (this.inputUnit === 'C') {
@@ -52,24 +66,21 @@ const app = Vue.createApp({
                 console.log('output', this.outputAmount)
             },
             lwvConversion() {
+                console.log("clicked!")
                 if (this.category === 'weight') {
-                    this.inputUnit = 'pound'
-                    this.outputUnit = 'gram'
+
                     let startingAmount = this.inputAmount * this.weight[this.inputUnit]
                     this.outputAmount = startingAmount/this.weight[this.outputUnit]
                 } else if (this.category === 'length') {
-                    this.inputUnit = 'ft'
-                    this.outputUnit = 'cm'
+
                     let startingAmount = this.inputAmount * this.length[this.inputUnit]
                     this.outputAmount = startingAmount/this.length[this.outputUnit]
                 } else if (this.category === 'volume') {
-                    this.inputUnit = 'cup'
-                    this.outputUnit = 'Imperial fluid ounce'
+
                     let startingAmount = this.inputAmount * this.volume[this.inputUnit]
                     this.outputAmount = startingAmount/this.volume[this.outputUnit] 
                 } else {
-                    this.inputUnit = 'C'
-                    this.outputUnit = 'F'
+
                     if (this.inputUnit === 'C') {
                         this.outputAmount = (this.inputAmount * (9/5) + 32)
                     } else {
@@ -85,7 +96,7 @@ const app = Vue.createApp({
                 let startingAmount = `4 * ${this.category}['cup']`
                 console.log(startingAmount)
                 this.outputAmount = `${startingAmount}/${this.category}['gallon']`
-                alert(this.outputAmount)
+
                 console.log('output', this.outputAmount)
 
 
@@ -96,7 +107,7 @@ const app = Vue.createApp({
             }
         },
         created: function() {
-            this.test()
+            // this.test()
         }
         // add functions to computed section?
 

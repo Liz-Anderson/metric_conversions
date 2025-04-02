@@ -12,10 +12,10 @@
             <h1>Metric Converter</h1>
             
             <div>
-                <button @click="category='temperature'">temperature</button>
-                <button @click="category='weight'">weight</button>
-                <button @click="category='length'">length</button>
-                <button @click="category='volume'">volume</button>
+                <button @click="category='temperature'; clickedValues()">temperature</button>
+                <button @click="category='weight'; clickedValues()">weight</button>
+                <button @click="category='length'; clickedValues()">length</button>
+                <button @click="category='volume'; clickedValues()">volume</button>
 
                 <p>category: {{category}}</p>
                 <p>How much is </p>
@@ -73,11 +73,15 @@
                     </select>
                 </div>
 
+
+                <button @click="(lwvConversion())">Answer</button>
+
+                <p>{{outputAmount}}</p>
+
                 
                 <!-- <input v-model="inputAmount" type="number">
                 <select>
                     <option v-for="item in Object.keys(category)">{{item}}</option>
-
                 </select> -->
 
             </div>
