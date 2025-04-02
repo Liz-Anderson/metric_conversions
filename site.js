@@ -7,12 +7,12 @@ const app = Vue.createApp({
             inputUnit: '',
             outputUnit: '',
             temperature: {
-                C: 0,
-                F: 32
+                'C': 0,
+                'F': 32
             },
             length: {
-                ft: 0.3048,
-                mi: 1609.34,
+                'ft': 0.3048,
+                'mi': 1609.34,
                 'm': 1,
                 'km': 1000,
                 'yd': 0.9144,
@@ -20,7 +20,7 @@ const app = Vue.createApp({
                 'cm': 0.01,
             },
             weight: {
-                gram: 0.00220462,
+                'gram': 0.00220462,
                 'ounce': 0.0625,
                 'pound': 1,
                 'kilogram': 2.20462,
@@ -68,20 +68,17 @@ const app = Vue.createApp({
             lwvConversion() {
                 console.log("clicked!")
                 if (this.category === 'weight') {
-
                     let startingAmount = this.inputAmount * this.weight[this.inputUnit]
                     this.outputAmount = startingAmount/this.weight[this.outputUnit]
                 } else if (this.category === 'length') {
-
                     let startingAmount = this.inputAmount * this.length[this.inputUnit]
                     this.outputAmount = startingAmount/this.length[this.outputUnit]
                 } else if (this.category === 'volume') {
-
                     let startingAmount = this.inputAmount * this.volume[this.inputUnit]
                     this.outputAmount = startingAmount/this.volume[this.outputUnit] 
                 } else {
-
                     if (this.inputUnit === 'C') {
+                        // convert to F
                         this.outputAmount = (this.inputAmount * (9/5) + 32)
                     } else {
                         // convert to C
@@ -108,6 +105,30 @@ const app = Vue.createApp({
         },
         created: function() {
             // this.test()
+        },
+        computed: {
+            // automatic conversion
+            converted: function(){
+                if (this.category === 'weight') {
+                    let startingAmount = this.inputAmount * this.weight[this.inputUnit]
+                    return startingAmount/this.weight[this.outputUnit]
+                } else if (this.category === 'length') {
+                    let startingAmount = this.inputAmount * this.length[this.inputUnit]
+                    return startingAmount/this.length[this.outputUnit]
+                } else if (this.category === 'volume') {
+                    let startingAmount = this.inputAmount * this.volume[this.inputUnit]
+                    return startingAmount/this.volume[this.outputUnit] 
+                } else {
+                    if (this.inputUnit === 'C') {
+                        // convert to F
+                        return (this.inputAmount * (9/5) + 32)
+                    } else {
+                        // convert to C
+                        return (this.inputAmount - 32) * (5/9)
+                    }
+                }
+
+            }
         }
         // add functions to computed section?
 

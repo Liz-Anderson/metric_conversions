@@ -73,10 +73,13 @@
                     </select>
                 </div>
 
-
+                <!-- clunky button version -->
                 <button @click="(lwvConversion())">Answer</button>
 
-                <p>{{outputAmount}}</p>
+                <!-- more streamline computed version
+                need to get an initial value to work -->
+                <p>{{outputAmount}} {{outputUnit}}</p>
+                <p>Converted amount: {{converted}} {{outputUnit}}</p>
 
                 
                 <!-- <input v-model="inputAmount" type="number">
