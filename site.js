@@ -4,8 +4,8 @@ const app = Vue.createApp({
             category: 'length',
             inputAmount: 0,
             outputAmount: 0,
-            inputUnit: '',
-            outputUnit: '',
+            inputUnit: 'ft',
+            outputUnit: 'cm',
             temperature: {
                 'C': 0,
                 'F': 32
@@ -109,7 +109,9 @@ const app = Vue.createApp({
         computed: {
             // automatic conversion
             converted: function(){
-                if (this.category === 'weight') {
+                if (this.inputUnit === this.outputUnit) {
+                    return this.inputAmount
+                } else if (this.category === 'weight') {
                     let startingAmount = this.inputAmount * this.weight[this.inputUnit]
                     return startingAmount/this.weight[this.outputUnit]
                 } else if (this.category === 'length') {
