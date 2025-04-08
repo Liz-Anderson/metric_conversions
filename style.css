@@ -13,3 +13,7 @@ input[type=number] {
 body {
   background-color: gray
 }
+
+input:focus {
+  outline: none;
+}

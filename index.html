@@ -22,7 +22,7 @@
 
                 <!-- temperature ----------------------------------------------------------------------->
                 <div v-if="category === 'temperature'">
-                    <input v-model="inputAmount" type="number">
+                    <input v-model="inputAmount" type="number" onfocus="this.select()">
 
                     <select v-model="inputUnit">
                         <option v-for="item in Object.keys(temperature)" :key="item">{{item}}</option>
@@ -35,7 +35,7 @@
 
                 <!-- length ---------------------------------------------------------------------------->
                 <div v-if="category === 'length'">
-                    <input v-model="inputAmount" type="number">
+                    <input v-model="inputAmount" type="number" onfocus="this.select()">
 
                     <select v-model="inputUnit">
                         <option v-for="item in Object.keys(length)" :key="item">{{item}}</option>
@@ -48,7 +48,7 @@
 
                 <!-- weight ---------------------------------------------------------------------------->
                 <div v-if="category === 'weight'">
-                    <input v-model="inputAmount" type="number">
+                    <input v-model="inputAmount" type="number" onfocus="this.select()">
 
                     <select v-model="inputUnit">
                         <option v-for="item in Object.keys(weight)" :value="item" :key="item">{{item}}</option>
@@ -62,7 +62,7 @@
                 <!-- volume ---------------------------------------------------------------------------->
                 <div v-if="category === 'volume'">
 
-                    <input v-model="inputAmount" type="number">
+                    <input v-model="inputAmount" type="number" onfocus="this.select()">
 
                     <select v-model="inputUnit">
                         <option v-for="item in Object.keys(volume)" :key="item">{{item}}</option>
@@ -73,12 +73,7 @@
                     </select>
                 </div>
 
-                <!-- clunky button version -->
-                <button @click="(lwvConversion())">Answer</button>
 
-                <!-- more streamline computed version
-                need to get an initial value to work -->
-                <p>{{outputAmount}} {{outputUnit}}</p>
                 <p>Converted amount: {{converted}} {{outputUnit}}</p>
 
                 
