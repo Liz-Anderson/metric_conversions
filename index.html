@@ -11,7 +11,7 @@
         <div id="app">
             <h1>Metric Converter</h1>
             
-            <div>
+            <div class="main">
                 <button @click="category='temperature'; clickedValues()">temperature</button>
                 <button @click="category='weight'; clickedValues()">weight</button>
                 <button @click="category='length'; clickedValues()">length</button>
@@ -21,7 +21,7 @@
                 <p>How much is </p>
 
                 <!-- temperature ----------------------------------------------------------------------->
-                <div v-if="category === 'temperature'">
+                <div id="temperature" class="category" v-if="category === 'temperature'">
                     <input v-model="inputAmount" type="number" onfocus="this.select()">
 
                     <select v-model="inputUnit">
@@ -34,7 +34,7 @@
                 </div>
 
                 <!-- length ---------------------------------------------------------------------------->
-                <div v-if="category === 'length'">
+                <div id="length" class="category" v-if="category === 'length'">
                     <input v-model="inputAmount" type="number" onfocus="this.select()">
 
                     <select v-model="inputUnit">
@@ -47,7 +47,7 @@
                 </div>
 
                 <!-- weight ---------------------------------------------------------------------------->
-                <div v-if="category === 'weight'">
+                <div id="weight" class="category" v-if="category === 'weight'">
                     <input v-model="inputAmount" type="number" onfocus="this.select()">
 
                     <select v-model="inputUnit">
@@ -60,7 +60,7 @@
                 </div>
 
                 <!-- volume ---------------------------------------------------------------------------->
-                <div v-if="category === 'volume'">
+                <div id="volume" class="category" v-if="category === 'volume'">
 
                     <input v-model="inputAmount" type="number" onfocus="this.select()">
 

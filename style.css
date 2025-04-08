@@ -11,9 +11,29 @@ input[type=number] {
 }
 
 body {
-  background-color: gray
+  background-color: gray;
 }
 
 input:focus {
   outline: none;
+}
+
+/* .main {
+  background-color: rgb(93, 93, 199);
+} */
+
+#temperature {
+  background-color: rgb(84, 33, 62);
+}
+
+#length {
+  background-color: rgb(37, 37, 73);
+}
+
+#weight {
+  background-color: rgb(36, 68, 36);
+}
+
+#volume {
+  background-color: rgb(57, 12, 57);
 }

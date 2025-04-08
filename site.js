@@ -6,10 +6,12 @@ const app = Vue.createApp({
             outputAmount: 0,
             inputUnit: 'ft',
             outputUnit: 'cm',
+            // equal temp in c and f
             temperature: {
                 'C': 0,
                 'F': 32
             },
+            // amount in meters(1 foot is 0.3048 meters)
             length: {
                 'ft': 0.3048,
                 'mi': 1609.34,
@@ -19,12 +21,14 @@ const app = Vue.createApp({
                 'in': 0.0254,
                 'cm': 0.01,
             },
+            // amount in pounds
             weight: {
                 'gram': 0.00220462,
                 'ounce': 0.0625,
                 'pound': 1,
                 'kilogram': 2.20462,
             },
+            // amount in cups
             volume: {
                 'tsp': 0.0208333,
                 'Tbsp': 0.0625,
