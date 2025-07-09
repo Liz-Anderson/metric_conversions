@@ -11,30 +11,49 @@ input[type=number] {
 }
 
 body {
-  background-color: gray;
+  height: 100vh;
+  color: rgb(209, 208, 208);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   
+}
+
+select {
+  display: block;
+}
+
+
+.color-container {
+  min-height: 100vh;
+  padding: 25px;
+}
+
+.input-amount {
+  color: rgb(209, 208, 208);
+  background-color: transparent;
+  border: none;
+  border-bottom: 3px solid gray;
+}
+
+.button {
+  color: rgb(209, 208, 208);
+  background-color: transparent;
+  border: none;
+
+}
+
+.button:focus {
+  font-weight: bold;
+  color: gray;
 }
 
 input:focus {
   outline: none;
 }
 
-/* .main {
-  background-color: rgb(93, 93, 199);
-} */
-
-#temperature {
-  background-color: rgb(101, 59, 83);
+#app {
+  min-height: 100vh;
 }
 
-#length {
-  background-color: rgb(57, 57, 88);
-}
-
-#weight {
-  background-color: rgb(82, 111, 82);
-}
-
-#volume {
-  background-color: rgb(99, 54, 99);
+#button-container {
+  margin-bottom: 10px;
 }

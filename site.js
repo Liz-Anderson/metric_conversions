@@ -2,66 +2,67 @@ const app = Vue.createApp({
     data() {
         return {
             category: 'length',
+            categoryColor: 'rgb(57, 57, 88)',
             inputAmount: 0,
             outputAmount: 0,
-            inputUnit: 'ft',
-            outputUnit: 'cm',
+            inputUnit: 'feet',
+            outputUnit: 'centimeters',
             // equal temp in c and f
             temperature: {
-                'C': 0,
-                'F': 32
+                'degrees c': 0,
+                'degrees f': 32
             },
             // amount in meters(1 foot is 0.3048 meters)
             length: {
-                'ft': 0.3048,
-                'mi': 1609.34,
-                'm': 1,
-                'km': 1000,
-                'yd': 0.9144,
-                'in': 0.0254,
-                'cm': 0.01,
+                'feet': 0.3048,
+                'miles': 1609.34,
+                'meters': 1,
+                'kilometers': 1000,
+                'yards': 0.9144,
+                'inches': 0.0254,
+                'centimeters': 0.01,
             },
             // amount in pounds
             weight: {
-                'gram': 0.00220462,
-                'ounce': 0.0625,
-                'pound': 1,
-                'kilogram': 2.20462,
+                'grams': 0.00220462,
+                'ounces': 0.0625,
+                'pounds': 1,
+                'kilograms': 2.20462,
             },
             // amount in cups
             volume: {
-                'tsp': 0.0208333,
-                'Tbsp': 0.0625,
-                'cup': 1,
-                'pint': 2,
-                'quart': 4,
-                'gallon': 16,
-                'ml': 0.00422675,
-                'liter': 4.22675,
-                'US fluid ounce': 0.125,
-                'Imperial fluid ounce': 0.120095,
+                'teaspoons': 0.0208333,
+                'tablespoons': 0.0625,
+                'cups': 1,
+                'pints': 2,
+                'quarts': 4,
+                'gallons': 16,
+                'milliliters': 0.00422675,
+                'liters': 4.22675,
+                'US fluid ounces': 0.125,
+                'Imperial fluid ounces': 0.120095,
             },
 
         }},
         methods: {
             clickedValues() {
                 if (this.category === 'weight') {
-                    this.inputUnit = 'pound'
-                    this.outputUnit = 'gram'
+                    this.inputUnit = 'pounds'
+                    this.outputUnit = 'grams'
                 } else if (this.category === 'length') {
-                    this.inputUnit = 'ft'
-                    this.outputUnit = 'cm'
+                    this.inputUnit = 'feet'
+                    this.outputUnit = 'centimeters'
                 } else if (this.category === 'volume') {
-                    this.inputUnit = 'cup'
-                    this.outputUnit = 'Imperial fluid ounce'
+                    this.inputUnit = 'cups'
+                    this.outputUnit = 'Imperial fluid ounces'
                 } else {
-                    this.inputUnit = 'C'
-                    this.outputUnit = 'F'
+                    this.inputUnit = 'degrees c'
+                    this.outputUnit = 'degrees f'
                 }
             },
             tempConversion() {
                 // convert to F
-                if (this.inputUnit === 'C') {
+                if (this.inputUnit === 'degrees c') {
                     this.outputAmount = (this.inputAmount * (9/5) + 32)
                 } else {
                     // convert to C
@@ -81,7 +82,7 @@ const app = Vue.createApp({
                     let startingAmount = this.inputAmount * this.volume[this.inputUnit]
                     this.outputAmount = startingAmount/this.volume[this.outputUnit] 
                 } else {
-                    if (this.inputUnit === 'C') {
+                    if (this.inputUnit === 'degrees c') {
                         // convert to F
                         this.outputAmount = (this.inputAmount * (9/5) + 32)
                     } else {
@@ -94,9 +95,9 @@ const app = Vue.createApp({
                 // this.outputAmount = startingAmount/this.category[this.outputUnit]
             },
             test() {
-                let startingAmount = `4 * ${this.category}['cup']`
+                let startingAmount = `4 * ${this.category}['cups']`
                 console.log(startingAmount)
-                this.outputAmount = `${startingAmount}/${this.category}['gallon']`
+                this.outputAmount = `${startingAmount}/${this.category}['gallons']`
 
                 console.log('output', this.outputAmount)
 
@@ -125,7 +126,7 @@ const app = Vue.createApp({
                     let startingAmount = this.inputAmount * this.volume[this.inputUnit]
                     return startingAmount/this.volume[this.outputUnit] 
                 } else {
-                    if (this.inputUnit === 'C') {
+                    if (this.inputUnit === 'degrees c') {
                         // convert to F
                         return (this.inputAmount * (9/5) + 32)
                     } else {

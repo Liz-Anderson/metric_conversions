@@ -9,84 +9,96 @@
     </head>
     <body>
         <div id="app">
-            <h1>Metric Converter</h1>
-            
-            <div class="main">
-                <div id="button-container">
-                    <button class="button" id="temp-button" @click="category='temperature'; clickedValues()">temperature</button>
-                    <button class="button" id="weight-button" @click="category='weight'; clickedValues()">weight</button>
-                    <button class="button" id="length-button" @click="category='length'; clickedValues()">length</button>
-                    <button class="button" id="volume-button" @click="category='volume'; clickedValues()">volume</button>
-                </div>
+            <div class="color-container" :style="{ backgroundColor : categoryColor }">
 
-                <div id="conversion-container">
-                    <p>category: {{category}}</p>
-                    <p>How much is </p>
-    
-                    <!-- temperature ----------------------------------------------------------------------->
-                    <div id="temperature" class="category" v-if="category === 'temperature'">
-                        <input v-model="inputAmount" type="number" onfocus="this.select()">
-    
-                        <select v-model="inputUnit">
-                            <option v-for="item in Object.keys(temperature)" :key="item">{{item}}</option>
-                        </select>
-                        <p>in</p>
-                        <select v-model="outputUnit">
-                            <option v-for="item in Object.keys(temperature)" :key="item">{{item}}</option>
-                        </select>
+                
+                <h1>metric converter</h1>
+                
+                
+                
+                <main>
+                    <div id="button-container">
+                        <button class="button" id="temp-button" @click="category='temperature'; clickedValues(); categoryColor='rgb(101, 59, 83)'">temperature</button>
+                        <button class="button" id="weight-button" @click="category='weight'; clickedValues(); categoryColor='rgb(82, 111, 82)'">weight</button>
+                        <button class="button" id="length-button" type="button" @click="category='length'; clickedValues(); categoryColor='rgb(57, 57, 88)'" autofocus>length</button>
+                        <button class="button" id="volume-button" @click="category='volume'; clickedValues(); categoryColor='rgb(99, 54, 99)'">volume</button>
                     </div>
-    
-                    <!-- length ---------------------------------------------------------------------------->
-                    <div id="length" class="category" v-if="category === 'length'">
-                        <input v-model="inputAmount" type="number" onfocus="this.select()">
-    
-                        <select v-model="inputUnit">
-                            <option v-for="item in Object.keys(length)" :key="item">{{item}}</option>
-                        </select>
-                        <p>in</p>
-                        <select v-model="outputUnit">
-                            <option v-for="item in Object.keys(length)" :key="item">{{item}}</option>
-                        </select>
+
+                    <div id="conversion-container">
+                        
+        
+                        <!-- temperature ----------------------------------------------------------------------->
+                        <div id="temperature" class="category" v-if="category === 'temperature'">
+                            <input class="input-amount" name="temp-amount" v-model="inputAmount" type="number" onfocus="this.select()">
+                            
+                            <select v-model="inputUnit">
+                                <option v-for="item in Object.keys(temperature)" :key="item">{{item}}</option>
+                            </select>
+                            
+                            
+                            <p>is {{ converted }}</p>
+                            <select v-model="outputUnit">
+                                <option v-for="item in Object.keys(temperature)" :key="item">{{item}}</option>
+                            </select>
+                        </div>
+        
+                        <!-- length ---------------------------------------------------------------------------->
+                        <div id="length" class="category" v-if="category === 'length'">
+                            <input class="input-amount" v-model="inputAmount" name="length-amount" type="number" onfocus="this.select()">
+                            
+                            <select v-model="inputUnit">
+                                <option v-for="item in Object.keys(length)" :key="item">{{item}}</option>
+                            </select>
+                            
+                            
+                            <p>is {{ converted }}</p>
+
+                            <select v-model="outputUnit">
+                                <option v-for="item in Object.keys(length)" :key="item">{{item}}</option>
+                            </select>
+                        </div>
+        
+                        <!-- weight ---------------------------------------------------------------------------->
+                        <div id="weight" class="category" v-if="category === 'weight'">
+                            <input class="input-amount" v-model="inputAmount" name="weight-amount" type="number" onfocus="this.select()">
+                            
+                            <select v-model="inputUnit">
+                                <option v-for="item in Object.keys(weight)" :value="item" :key="item">{{item}}</option>
+                            </select>
+                            
+                            <p>is {{ converted }}</p>
+
+                            <select v-model="outputUnit">
+                                <option v-for="item in Object.keys(weight)" :value="item" :key="item">{{item}}</option>
+                            </select>
+                        </div>
+        
+                        <!-- volume ---------------------------------------------------------------------------->
+                        <div id="volume" class="category" v-if="category === 'volume'">
+        
+                            <input class="input-amount" v-model="inputAmount" name="volume-amount" type="number" onfocus="this.select()">
+                            
+                            <select v-model="inputUnit">
+                                <option v-for="item in Object.keys(volume)" :key="item">{{item}}</option>
+                            </select>
+                            
+                            
+                            <p>is {{ converted }}</p>
+
+                            <select v-model="outputUnit">
+                                <option v-for="item in Object.keys(volume)" :key="item">{{item}}</option>
+                            </select>
+                        </div>
+        
+                        
+                        <!-- <input v-model="inputAmount" type="number">
+                        <select>
+                            <option v-for="item in Object.keys(category)">{{item}}</option>
+                        </select> -->
                     </div>
-    
-                    <!-- weight ---------------------------------------------------------------------------->
-                    <div id="weight" class="category" v-if="category === 'weight'">
-                        <input v-model="inputAmount" type="number" onfocus="this.select()">
-    
-                        <select v-model="inputUnit">
-                            <option v-for="item in Object.keys(weight)" :value="item" :key="item">{{item}}</option>
-                        </select>
-                        <p>in</p>
-                        <select v-model="outputUnit">
-                            <option v-for="item in Object.keys(weight)" :value="item" :key="item">{{item}}</option>
-                        </select>
-                    </div>
-    
-                    <!-- volume ---------------------------------------------------------------------------->
-                    <div id="volume" class="category" v-if="category === 'volume'">
-    
-                        <input v-model="inputAmount" type="number" onfocus="this.select()">
-    
-                        <select v-model="inputUnit">
-                            <option v-for="item in Object.keys(volume)" :key="item">{{item}}</option>
-                        </select>
-                        <p>in</p>
-                        <select v-model="outputUnit">
-                            <option v-for="item in Object.keys(volume)" :key="item">{{item}}</option>
-                        </select>
-                    </div>
-    
-    
-                    <p>Converted amount: {{converted}} {{outputUnit}}</p>
-    
-                    
-                    <!-- <input v-model="inputAmount" type="number">
-                    <select>
-                        <option v-for="item in Object.keys(category)">{{item}}</option>
-                    </select> -->
-                </div>
 
 
+                </main>
             </div>
             
         </div>
