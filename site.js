@@ -1,12 +1,13 @@
 const app = Vue.createApp({
     data() {
         return {
-            category: 'length',
+            category: 'temperature',
+            clickedCategory: false,
             categoryColor: 'rgb(57, 57, 88)',
             inputAmount: 0,
             outputAmount: 0,
-            inputUnit: 'feet',
-            outputUnit: 'centimeters',
+            inputUnit: 'degrees c',
+            outputUnit: 'degrees f',
             // equal temp in c and f
             temperature: {
                 'degrees c': 0,
@@ -45,7 +46,8 @@ const app = Vue.createApp({
 
         }},
         methods: {
-            clickedValues() {
+            clickedValues(event, category) {
+
                 if (this.category === 'weight') {
                     this.inputUnit = 'pounds'
                     this.outputUnit = 'grams'
@@ -60,53 +62,41 @@ const app = Vue.createApp({
                     this.outputUnit = 'degrees f'
                 }
             },
-            tempConversion() {
-                // convert to F
-                if (this.inputUnit === 'degrees c') {
-                    this.outputAmount = (this.inputAmount * (9/5) + 32)
-                } else {
-                    // convert to C
-                    this.outputAmount = (this.inputAmount - 32) * (5/9)
-                }
-                console.log('output', this.outputAmount)
-            },
-            lwvConversion() {
-                console.log("clicked!")
-                if (this.category === 'weight') {
-                    let startingAmount = this.inputAmount * this.weight[this.inputUnit]
-                    this.outputAmount = startingAmount/this.weight[this.outputUnit]
-                } else if (this.category === 'length') {
-                    let startingAmount = this.inputAmount * this.length[this.inputUnit]
-                    this.outputAmount = startingAmount/this.length[this.outputUnit]
-                } else if (this.category === 'volume') {
-                    let startingAmount = this.inputAmount * this.volume[this.inputUnit]
-                    this.outputAmount = startingAmount/this.volume[this.outputUnit] 
-                } else {
-                    if (this.inputUnit === 'degrees c') {
-                        // convert to F
-                        this.outputAmount = (this.inputAmount * (9/5) + 32)
-                    } else {
-                        // convert to C
-                        this.outputAmount = (this.inputAmount - 32) * (5/9)
-                    }
-                }
-                // this is the streamline way to do this, i need to figure it out
-                // let startingAmount = this.inputAmount * this.category[this.inputUnit]
-                // this.outputAmount = startingAmount/this.category[this.outputUnit]
-            },
-            test() {
-                let startingAmount = `4 * ${this.category}['cups']`
-                console.log(startingAmount)
-                this.outputAmount = `${startingAmount}/${this.category}['gallons']`
+            // tempConversion() {
+            //     // convert to F
+            //     if (this.inputUnit === 'degrees c') {
+            //         this.outputAmount = (this.inputAmount * (9/5) + 32)
+            //     } else {
+            //         // convert to C
+            //         this.outputAmount = (this.inputAmount - 32) * (5/9)
+            //     }
+            //     console.log('output', this.outputAmount)
+            // },
+            // lwvConversion() {
+            //     console.log("clicked!")
+            //     if (this.category === 'weight') {
+            //         let startingAmount = this.inputAmount * this.weight[this.inputUnit]
+            //         this.outputAmount = startingAmount/this.weight[this.outputUnit]
+            //     } else if (this.category === 'length') {
+            //         let startingAmount = this.inputAmount * this.length[this.inputUnit]
+            //         this.outputAmount = startingAmount/this.length[this.outputUnit]
+            //     } else if (this.category === 'volume') {
+            //         let startingAmount = this.inputAmount * this.volume[this.inputUnit]
+            //         this.outputAmount = startingAmount/this.volume[this.outputUnit] 
+            //     } else {
+            //         if (this.inputUnit === 'degrees c') {
+            //             // convert to F
+            //             this.outputAmount = (this.inputAmount * (9/5) + 32)
+            //         } else {
+            //             // convert to C
+            //             this.outputAmount = (this.inputAmount - 32) * (5/9)
+            //         }
+            //     }
+            //     // this is the streamline way to do this, i need to figure it out
+            //     // let startingAmount = this.inputAmount * this.category[this.inputUnit]
+            //     // this.outputAmount = startingAmount/this.category[this.outputUnit]
+            // },
 
-                console.log('output', this.outputAmount)
-
-
-
-                console.log('1', this.category)
-       
-                console.log('4', Object.keys(`${this.category}`))
-            }
         },
         created: function() {
             // this.test()
@@ -118,20 +108,21 @@ const app = Vue.createApp({
                     return this.inputAmount
                 } else if (this.category === 'weight') {
                     let startingAmount = this.inputAmount * this.weight[this.inputUnit]
-                    return startingAmount/this.weight[this.outputUnit]
+                    return Math.round((startingAmount/this.weight[this.outputUnit])* 100)/100
                 } else if (this.category === 'length') {
+
                     let startingAmount = this.inputAmount * this.length[this.inputUnit]
-                    return startingAmount/this.length[this.outputUnit]
+                    return Math.round((startingAmount/this.length[this.outputUnit]) * 100)/100
                 } else if (this.category === 'volume') {
                     let startingAmount = this.inputAmount * this.volume[this.inputUnit]
-                    return startingAmount/this.volume[this.outputUnit] 
+                    return Math.round((startingAmount/this.volume[this.outputUnit])*100)/100 
                 } else {
                     if (this.inputUnit === 'degrees c') {
                         // convert to F
-                        return (this.inputAmount * (9/5) + 32)
+                        return Math.round((this.inputAmount * (9/5) + 32)*100)/100
                     } else {
                         // convert to C
-                        return (this.inputAmount - 32) * (5/9)
+                        return Math.round(((this.inputAmount - 32) * (5/9))*100)/100
                     }
                 }
 

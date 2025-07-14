@@ -11,17 +11,14 @@
         <div id="app">
             <div class="color-container" :style="{ backgroundColor : categoryColor }">
 
-                
-                <h1>metric converter</h1>
-                
-                
-                
                 <main>
                     <div id="button-container">
-                        <button class="button" id="temp-button" @click="category='temperature'; clickedValues(); categoryColor='rgb(101, 59, 83)'">temperature</button>
-                        <button class="button" id="weight-button" @click="category='weight'; clickedValues(); categoryColor='rgb(82, 111, 82)'">weight</button>
-                        <button class="button" id="length-button" type="button" @click="category='length'; clickedValues(); categoryColor='rgb(57, 57, 88)'" autofocus>length</button>
-                        <button class="button" id="volume-button" @click="category='volume'; clickedValues(); categoryColor='rgb(99, 54, 99)'">volume</button>
+
+                        <!-- work on activating a class only on the clicked button -->
+                        <button class="button" :class="{'active-button': clickedCategory}" id="temp-button" @click="category='temperature'; clickedValues($event); categoryColor='rgb(101, 59, 83)'; clickedCategory = !clickedCategory">temperature</button>
+                        <button class="button" :class="{'active-button': clickedCategory}" id="weight-button" @click="category='weight'; clickedValues($event); categoryColor='rgb(82, 111, 82)'; clickedCategory = !clickedCategory">weight</button>
+                        <button class="button" :class="{'active-button': clickedCategory}" id="length-button" type="button" @click="category='length'; clickedValues($event); categoryColor='rgb(57, 57, 88)'; clickedCategory = !clickedCategory" autofocus>length</button>
+                        <button class="button" :class="{'active-button': clickedCategory}" id="volume-button" @click="category='volume'; clickedValues($event); categoryColor='rgb(99, 54, 99)'; clickedCategory = !clickedCategory">volume</button>
                     </div>
 
                     <div id="conversion-container">

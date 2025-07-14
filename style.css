@@ -41,9 +41,10 @@ select {
 
 }
 
-.button:focus {
+.active-button {
   font-weight: bold;
   color: gray;
+  border-bottom: 2px solid gray;
 }
 
 input:focus {
