@@ -11,10 +11,10 @@ input[type=number] {
 }
 
 body {
-  min-height: 100vh;
+  height: 100vh;
   color: rgb(209, 208, 208);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  /* background-color: rgb(209, 208, 208); */
+  background-color: black;
   
 }
 
@@ -24,7 +24,7 @@ select {
 
 
 .color-container {
-  min-height: 100vh;
+  height: 100vh;
   padding: 25px;
 }
 
@@ -59,7 +59,7 @@ input:focus {
 }
 
 #app {
-  min-height: 100vh;
+  height: 100vh;
 }
 
 #button-container {
