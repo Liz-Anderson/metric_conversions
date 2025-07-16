@@ -11,9 +11,10 @@ input[type=number] {
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   color: rgb(209, 208, 208);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* background-color: rgb(209, 208, 208); */
   
 }
 
