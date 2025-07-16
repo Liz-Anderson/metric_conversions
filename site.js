@@ -3,13 +3,13 @@ const app = Vue.createApp({
         return {
             category: 'temperature',
             clickedCategory: {
-                tempActive: false,
+                tempActive: true,
                 weightActive: false,
                 volActive: false,
-                lengthActive: true,
+                lengthActive: false,
             },
 
-            categoryColor: 'rgb(57, 57, 88)',
+            categoryColor: 'rgb(101, 59, 83)',
             inputAmount: 0,
             outputAmount: 0,
             inputUnit: 'degrees c',
