@@ -41,6 +41,12 @@ select {
 
 }
 
+/* .button:active {
+  font-weight: bold;
+  color: gray;
+  border-bottom: 2px solid gray;
+} */
+
 .active-button {
   font-weight: bold;
   color: gray;

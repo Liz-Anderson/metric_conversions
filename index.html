@@ -15,10 +15,10 @@
                     <div id="button-container">
 
                         <!-- work on activating a class only on the clicked button -->
-                        <button class="button" :class="{'active-button': clickedCategory}" id="temp-button" @click="category='temperature'; clickedValues($event); categoryColor='rgb(101, 59, 83)'; clickedCategory = !clickedCategory">temperature</button>
-                        <button class="button" :class="{'active-button': clickedCategory}" id="weight-button" @click="category='weight'; clickedValues($event); categoryColor='rgb(82, 111, 82)'; clickedCategory = !clickedCategory">weight</button>
-                        <button class="button" :class="{'active-button': clickedCategory}" id="length-button" type="button" @click="category='length'; clickedValues($event); categoryColor='rgb(57, 57, 88)'; clickedCategory = !clickedCategory" autofocus>length</button>
-                        <button class="button" :class="{'active-button': clickedCategory}" id="volume-button" @click="category='volume'; clickedValues($event); categoryColor='rgb(99, 54, 99)'; clickedCategory = !clickedCategory">volume</button>
+                        <button class="button" :class="{'active-button': clickedCategory.tempActive}" id="temp-button" @click="category='temperature'; clickedValues($event); categoryColor='rgb(101, 59, 83)'">temperature</button>
+                        <button class="button" :class="{'active-button': clickedCategory.weightActive}" id="weight-button" @click="category='weight'; clickedValues($event); categoryColor='rgb(82, 111, 82)'">weight</button>
+                        <button class="button" :class="{'active-button': clickedCategory.lengthActive}" id="length-button" type="button" @click="category='length'; clickedValues($event); categoryColor='rgb(57, 57, 88)'">length</button>
+                        <button class="button" :class="{'active-button': clickedCategory.volActive}" id="volume-button" @click="category='volume'; clickedValues($event); categoryColor='rgb(99, 54, 99)'">volume</button>
                     </div>
 
                     <div id="conversion-container">

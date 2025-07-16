@@ -2,7 +2,13 @@ const app = Vue.createApp({
     data() {
         return {
             category: 'temperature',
-            clickedCategory: false,
+            clickedCategory: {
+                tempActive: false,
+                weightActive: false,
+                volActive: false,
+                lengthActive: true,
+            },
+
             categoryColor: 'rgb(57, 57, 88)',
             inputAmount: 0,
             outputAmount: 0,
@@ -46,18 +52,46 @@ const app = Vue.createApp({
 
         }},
         methods: {
-            clickedValues(event, category) {
+            clickedValues() {
+                this.clickedCategory.tempActive = !this.clickedCategory.tempActive
+                this.clickedCategory.weightActive = !this.clickedCategory.weightActive
+                this.clickedCategory.volActive = !this.clickedCategory.volActive
+                this.clickedCategory.lengthActive = !this.clickedCategory.lengthActive
 
                 if (this.category === 'weight') {
+                    this.clickedCategory.tempActive = false
+                    this.clickedCategory.weightActive = true
+                    this.clickedCategory.volActive = false
+                    this.clickedCategory.lengthActive = false
+
                     this.inputUnit = 'pounds'
                     this.outputUnit = 'grams'
                 } else if (this.category === 'length') {
+
+                    this.clickedCategory.tempActive = false
+                    this.clickedCategory.weightActive = false
+                    this.clickedCategory.volActive = false
+                    this.clickedCategory.lengthActive = true
+
                     this.inputUnit = 'feet'
                     this.outputUnit = 'centimeters'
+
                 } else if (this.category === 'volume') {
+
+                    this.clickedCategory.tempActive = false
+                    this.clickedCategory.weightActive = false
+                    this.clickedCategory.volActive = true
+                    this.clickedCategory.lengthActive = false
+
                     this.inputUnit = 'cups'
                     this.outputUnit = 'Imperial fluid ounces'
                 } else {
+
+                    this.clickedCategory.tempActive = true
+                    this.clickedCategory.weightActive = false
+                    this.clickedCategory.volActive = false
+                    this.clickedCategory.lengthActive = false
+
                     this.inputUnit = 'degrees c'
                     this.outputUnit = 'degrees f'
                 }
