@@ -10,8 +10,12 @@ input[type=number] {
   appearance: textfield;
 }
 
+input:focus {
+  outline: none;
+}
+
 body {
-  height: 100vh;
+  min-height: 100vh;
   color: rgb(209, 208, 208);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: black;
@@ -24,7 +28,7 @@ select {
 
 
 .color-container {
-  height: 100vh;
+  min-height: 100vh;
   padding: 25px;
 }
 
@@ -38,30 +42,29 @@ select {
 .button {
   color: rgb(209, 208, 208);
   background-color: transparent;
-  border: none;
-
+  border: 1px solid rgb(209, 208, 208);
+  height: 50%;
+  width: 50%;
 }
-
-/* .button:active {
-  font-weight: bold;
-  color: gray;
-  border-bottom: 2px solid gray;
-} */
 
 .active-button {
   font-weight: bold;
   color: gray;
-  border-bottom: 2px solid gray;
 }
 
-input:focus {
-  outline: none;
+.button:hover {
+  background-color: yellow;
 }
 
 #app {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 #button-container {
   margin-bottom: 10px;
+  display: flex;
+  height: 33vh;
+  /* border: 2px solid red; */
+  flex-wrap: wrap;
+
 }
