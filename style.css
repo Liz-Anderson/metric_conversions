@@ -8,6 +8,7 @@ input::-webkit-inner-spin-button {
 /* Firefox hide arrow buttons*/
 input[type=number] {
   appearance: textfield;
+  -webkit-appearance: none;
 }
 
 input:focus {
@@ -24,6 +25,7 @@ body {
 
 select {
   display: block;
+  width: 200px;
 }
 
 
@@ -45,6 +47,8 @@ select {
   border: 1px solid rgb(209, 208, 208);
   height: 50%;
   width: 50%;
+
+  
 }
 
 .active-button {
@@ -53,7 +57,7 @@ select {
 }
 
 .button:hover {
-  background-color: yellow;
+  background-color: black;
 }
 
 #app {
