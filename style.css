@@ -39,6 +39,7 @@ select {
   background-color: transparent;
   border: none;
   border-bottom: 3px solid gray;
+  border-radius: 0;
 }
 
 .button {
