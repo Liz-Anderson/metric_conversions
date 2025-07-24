@@ -49,6 +49,10 @@ main {
   height: 100%;
 }
 
+p {
+  padding-left: 4px;
+}
+
 .input-amount {
   color: rgb(209, 208, 208);
   background-color: transparent;
