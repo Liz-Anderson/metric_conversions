@@ -9,7 +9,7 @@ const app = Vue.createApp({
                 lengthActive: false,
             },
 
-            categoryColor: 'rgb(101, 59, 83)',
+            categoryColor: 'rgb(162, 43, 127)',
             inputAmount: 0,
             outputAmount: 0,
             inputUnit: 'degrees c',
