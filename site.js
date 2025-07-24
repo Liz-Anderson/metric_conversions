@@ -46,8 +46,8 @@ const app = Vue.createApp({
                 'gallons': 16,
                 'milliliters': 0.00422675,
                 'liters': 4.22675,
-                'US fluid ounces': 0.125,
-                'Imperial fluid ounces': 0.120095,
+                'US fl oz': 0.125,
+                'Imperial fl oz': 0.120095,
             },
 
         }},
@@ -84,7 +84,7 @@ const app = Vue.createApp({
                     this.clickedCategory.lengthActive = false
 
                     this.inputUnit = 'cups'
-                    this.outputUnit = 'Imperial fluid ounces'
+                    this.outputUnit = 'Imperial fl oz'
                 } else {
 
                     this.clickedCategory.tempActive = true

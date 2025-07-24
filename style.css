@@ -40,6 +40,7 @@ select {
   border: none;
   border-bottom: 3px solid gray;
   color: rgb(209, 208, 208);
+  border-radius: 0;
 }
 
 main {
@@ -54,7 +55,7 @@ main {
   border: none;
   border-bottom: 3px solid gray;
   border-radius: 0;
-  width: 100%;
+  max-width: 100%;
   margin: 0 0 1em 0;
 }
 
