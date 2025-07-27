@@ -40,6 +40,10 @@ select {
   padding: 0;
 }
 
+option {
+  padding: 0;
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -106,7 +110,7 @@ main {
 #conversion-container {
   margin: 1em;
   font-size: 2em;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 
