@@ -38,7 +38,7 @@ select {
   width: 100%;
   background-color: transparent;
   border: none;
-  border-bottom: 3px solid gray;
+  border-bottom: 3px solid rgb(209, 208, 208);
   color: rgb(209, 208, 208);
   border-radius: 0;
 }
@@ -46,20 +46,17 @@ select {
 main {
   display: flex;
   flex-direction: column;
-  height: 100%;
-}
-
-p {
-  padding-left: 4px;
+  min-height: 100%;
+  align-items: center;
 }
 
 .input-amount {
   color: rgb(209, 208, 208);
   background-color: transparent;
   border: none;
-  border-bottom: 3px solid gray;
+  border-bottom: 3px solid rgb(209, 208, 208);
   border-radius: 0;
-  max-width: 100%;
+  width: 100%;
   margin: 0 0 1em 0;
 }
 
@@ -76,23 +73,33 @@ p {
   background-color: transparent;
   border: 1px solid rgb(209, 208, 208);
   /* height: 50%; */
-  min-width: 3.5em;
+  /* min-width: 3.5em; */
   min-height: 3em;
   flex-grow: 1;
   margin: .5em;
   font-size: 2em;
-  
+  width: 40%;
 }
+
+/* .btn-surround {
+  display: flex;
+  min-width: 3.5em;
+  min-height: 3em;
+  flex-grow: 1;
+  margin: .5em;
+  border: 1px solid red;
+} */
 
 .active-button {
   /* font-weight: bold; */
   /* text-shadow: 1px 1px 1px gray; */
   background-color: black;
-  color: gray;
+  border-color: black;
 }
 
 .button:hover {
   background-color: black;
+  border-color: black;
 }
 
 #app {
@@ -113,4 +120,18 @@ p {
 #conversion-container {
   margin: 1em;
   font-size: 2em;
+}
+
+
+#column {
+  width: 100%;
+  max-width: 800px;
+} 
+
+
+/* -----------desktop------------------ */
+@media (min-width: 1100px) {
+  #column {
+    margin: auto;
+  }
 }
