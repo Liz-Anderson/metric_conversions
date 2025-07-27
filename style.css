@@ -29,10 +29,6 @@ input:focus {
   outline: none;
 }
 
-/* input {
-  font-size: 2em;
-} */
-
 select {
   display: block;
   width: 100%;
@@ -41,6 +37,7 @@ select {
   border-bottom: 3px solid rgb(209, 208, 208);
   color: rgb(209, 208, 208);
   border-radius: 0;
+  padding: 0;
 }
 
 main {
@@ -58,6 +55,7 @@ main {
   border-radius: 0;
   width: 100%;
   margin: 0 0 1em 0;
+  padding: 0;
 }
 
 .mini-btn-container {
@@ -81,18 +79,7 @@ main {
   width: 40%;
 }
 
-/* .btn-surround {
-  display: flex;
-  min-width: 3.5em;
-  min-height: 3em;
-  flex-grow: 1;
-  margin: .5em;
-  border: 1px solid red;
-} */
-
 .active-button {
-  /* font-weight: bold; */
-  /* text-shadow: 1px 1px 1px gray; */
   background-color: black;
   border-color: black;
 }
@@ -109,7 +96,6 @@ main {
 }
 
 #button-container {
-  /* margin-bottom: 10px; */
   margin: 1em 1em 0 1em;
   display: flex;
   /* border: 2px solid red; */
@@ -120,6 +106,7 @@ main {
 #conversion-container {
   margin: 1em;
   font-size: 2em;
+  border: 1px solid red;
 }
 
 
